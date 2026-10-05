@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <title>Tactix — Tic-Tac-Toe, thoughtfully played</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar"><a class="brand" href="./"><span class="brand-mark">✳</span> TACTIX<span class="brand-dot">.</span></a><span class="topbar-note">A little game of big decisions</span></header>
+    <main>
+      <section class="hero"><div><p class="eyebrow">THE CLASSIC, REIMAGINED</p><h1>Think ahead.<br><em>Make your mark.</em></h1><p>Challenge an unbeatable opponent or play face to face. Every square is a choice.</p></div><div class="hero-art" aria-hidden="true"><span>×</span><span>○</span><span>×</span></div></section>
+      <div class="layout">
+        <section class="game-card" aria-label="Tic-Tac-Toe game">
+          <div class="game-heading"><div><p class="eyebrow">THE ARENA</p><h2 id="round-title">Your move, X</h2></div><span class="mode-badge" id="mode-badge">VS AI</span></div>
+          <div class="turn-row"><span class="turn-dot" id="turn-dot"></span><p id="status" role="status" aria-live="polite">You're X. Choose a square to begin.</p></div>
+          <div id="board" class="board" role="grid" aria-label="Tic-Tac-Toe board">
+            <button type="button" class="square" data-index="0" role="gridcell" aria-label="Row 1, column 1"></button><button type="button" class="square" data-index="1" role="gridcell" aria-label="Row 1, column 2"></button><button type="button" class="square" data-index="2" role="gridcell" aria-label="Row 1, column 3"></button>
+            <button type="button" class="square" data-index="3" role="gridcell" aria-label="Row 2, column 1"></button><button type="button" class="square" data-index="4" role="gridcell" aria-label="Row 2, column 2"></button><button type="button" class="square" data-index="5" role="gridcell" aria-label="Row 2, column 3"></button>
+            <button type="button" class="square" data-index="6" role="gridcell" aria-label="Row 3, column 1"></button><button type="button" class="square" data-index="7" role="gridcell" aria-label="Row 3, column 2"></button><button type="button" class="square" data-index="8" role="gridcell" aria-label="Row 3, column 3"></button>
+          </div>
+          <div class="game-actions"><button id="new-round" class="button primary" type="button">↻ &nbsp; New round</button><button id="hint" class="button secondary" type="button">✦ &nbsp; Best move</button></div>
+          <div id="hint-panel" class="hint-panel" hidden aria-live="polite"></div>
+        </section>
+        <aside class="side-panel" aria-label="Game settings and score">
+          <section class="panel"><p class="eyebrow">PLAY YOUR WAY</p><h2>Game mode</h2><div class="segmented" role="group" aria-label="Game mode"><button id="mode-ai" class="active" type="button" aria-pressed="true">Play AI</button><button id="mode-local" type="button" aria-pressed="false">Two players</button></div><div id="mark-selector"><p class="field-label">Your mark</p><div class="mark-options" role="group" aria-label="Choose your mark"><button id="choose-x" class="active" type="button" aria-pressed="true">X <small>First move</small></button><button id="choose-o" type="button" aria-pressed="false">O <small>AI goes first</small></button></div></div></section>
+          <section class="panel"><div class="score-heading"><div><p class="eyebrow">THE SCOREBOARD</p><h2>Match score</h2></div><button id="reset-score" type="button" aria-label="Reset scores">Reset</button></div><div class="scoreboard"><div><span class="score-symbol x-symbol">X</span><strong id="x-score">0</strong><span id="x-label">You</span></div><div><span class="score-symbol draw-symbol">—</span><strong id="draw-score">0</strong><span>Draws</span></div><div><span class="score-symbol o-symbol">O</span><strong id="o-score">0</strong><span id="o-label">AI</span></div></div></section>
+          <section class="insight"><span class="insight-icon">✦</span><div><strong>Behind the move</strong><p>The AI explores possible futures with minimax and alpha-beta pruning. It can win or draw, but never lose.</p></div></section>
+        </aside>
+      </div>
+      <footer>Three in a row. Infinite possibilities.</footer>
+    </main>
+  </div>
+  <noscript><p class="noscript">Enable JavaScript to play Tactix.</p></noscript>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
